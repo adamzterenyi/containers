@@ -90,8 +90,10 @@ class AVLTree(BST):
                 rotRoot.parent.rightChild = newRoot
         newRoot.leftChild = rotRoot
         rotRoot.parent = newRoot
-        rotRoot.balanceFactor = rotRoot.balanceFactor + 1 - min(newRoot.balanceFactor, 0)
-        newRoot.balanceFactor = newRoot.balanceFactor + 1 + max(rotRoot.balanceFactor, 0)
+        rotRoot.balanceFactor = rotRoot.balanceFactor
+        + 1 - min(newRoot.balanceFactor, 0)
+        newRoot.balanceFactor = newRoot.balanceFactor
+        + 1 + max(rotRoot.balanceFactor, 0)
         """
         new_root = Node(node.right.value)
         new_root.right = node.right.right
@@ -150,7 +152,7 @@ class AVLTree(BST):
             node.left = AVLTree._insert(node.left, value)
         else:
             node.right = AVLTree._insert(node.right, value)
-        
+
         balance_factor = AVLTree._balance_factor(node)
         if balance_factor > 1:
             if value < node.left.value:
