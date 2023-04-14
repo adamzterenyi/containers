@@ -10,7 +10,6 @@ def range(a, b=None, c=None):
     >>> list(range(1, 5, 2))
     [1, 3]
     '''
-
     i = a
     if b is None and c is None:
         i = 0
